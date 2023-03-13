@@ -1,26 +1,32 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <Simple
+      :image="theimage"
+      :columns="columns"
+      :rows="rows"
+      :canvasHeight="100"
+    />
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import { ref } from "vue";
+import Simple from "@/components/Simple.vue";
 
 export default {
-  name: 'App',
   components: {
-    HelloWorld
-  }
-}
-</script>
+    Simple,
+  },
+  setup() {
+    const theimage = ref("/logo.png");
+    const columns = ref(8);
+    const rows = ref(8);
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+    return {
+      theimage,
+      columns, 
+      rows
+    };
+  },
+};
+</script>

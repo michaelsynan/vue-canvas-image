@@ -3,11 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "serve": "vue-cli-service serve"
   },
   "dependencies": {
+    "canvas": "^2.11.0",
     "core-js": "^3.8.3",
     "vue": "^3.2.13"
   },
