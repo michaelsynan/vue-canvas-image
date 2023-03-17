@@ -3,7 +3,7 @@
     <h1 class="app-title">Canvas Example</h1>
     <div class="columns-container">
       <div v-for="(row, rowIndex) in rows" :key="rowIndex" class="row">
-        <div v-for="(column, columnIndex) in columns" :key="columnIndex" :id="'column-' + columnIndex + '-row-' + rowIndex" class="column">
+        <div v-for="(column, columnIndex) in columns" :key="columnIndex" :id="'column-' + columnIndex + '-row-' + rowIndex" class="column"  :class="{'fade-in': fadeIn}">
           <canvas :ref="'canvas-' + columnIndex + '-row-' + rowIndex" :width="columnWidth" :height="rowHeight" />
         </div>
       </div>
@@ -26,6 +26,10 @@ export default {
     image: {
       type: String,
       default: '/hudl.png',
+    },
+    fadeIn: {
+      type: Boolean,
+      default: true,
     },
   },
   data() {
@@ -67,6 +71,19 @@ export default {
         }
       }
     };
+    if (this.fadeIn) {
+      const onFadeInEnd = (event) => {
+        event.target.removeEventListener('animationend', onFadeInEnd);
+        event.target.style.opacity = '1';
+      };
+
+      for (let i = 0; i < this.columns; i++) {
+        for (let j = 0; j < this.rows; j++) {
+          const canvas = this.$refs['canvas-' + i + '-row-' + j][0];
+          canvas.addEventListener('animationend', onFadeInEnd);
+        }
+      }
+    }
   },
 
 };
@@ -101,4 +118,20 @@ export default {
 .column:nth-child(even) {
   margin-top: 2px;
 }
+
+/* fade in animation */
+
+@keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+
+  .fade-in {
+    animation: fadeIn 1s ease-out;
+  }
 </style>
