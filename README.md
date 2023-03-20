@@ -1,5 +1,8 @@
 # gridcanvas
 
+## Example
+![alt text](/public/canvas_demo.png)
+
 ## Project setup
 ```
 pnpm install
