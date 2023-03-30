@@ -1,6 +1,5 @@
 <template>
   <div>
-    <h1 class="app-title">Canvas Example</h1>
     <div class="columns-container">
       <div v-for="(row, rowIndex) in rows" :key="rowIndex" class="row">
         <div v-for="(column, columnIndex) in columns" :key="columnIndex" :id="'column-' + columnIndex + '-row-' + rowIndex" class="column"  :class="{'fade-in': fadeIn}">
@@ -13,7 +12,7 @@
 
 <script>
 export default {
-  name: 'App',
+  name: 'canvasImage',
   props: {
     columns: {
       type: Number,

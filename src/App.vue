@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Simple
+    <canvasImage
       :image="theimage"
       :columns="columns"
       :rows="rows"
@@ -11,11 +11,11 @@
 
 <script>
 import { ref } from "vue";
-import Simple from "@/components/Simple.vue";
+import canvasImage from "@/components/canvasImage.vue";
 
 export default {
   components: {
-    Simple,
+    canvasImage,
   },
   setup() {
     const theimage = ref("/logo.png");
