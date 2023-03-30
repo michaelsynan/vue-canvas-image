@@ -4,7 +4,6 @@
       :image="theimage"
       :columns="columns"
       :rows="rows"
-      :canvasHeight="100"
     />
   </div>
 </template>
@@ -30,3 +29,14 @@ export default {
   },
 };
 </script>
+
+<style>
+html,
+body,
+#app {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+</style>
